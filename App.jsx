@@ -8,64 +8,11 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-import { Text } from "react-native";
-import { Restaurant } from "./src/features/restaurants/screens/Restaurant.screen";
+import { Navigation } from "./src/infrastructure/navigation/index";
 // console.log(StatusBar.currentHeight)
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeArea } from "./src/components/utility/SafeArea";
-import Ionicons  from "@expo/vector-icons/Ionicons";
-import {restaurantRequest} from "./src/services/restaurant/restaurantsService";
+import { RestaurantsContextProvider } from "./src/services/restaurant/restaurant.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 
-
-const Tab = createBottomTabNavigator();
-
-const Map = () => {
-  return (
-    <>
-      <SafeArea
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      >
-        <Text>Map</Text>
-      </SafeArea>
-    </>
-  );
-};
-
-const Settings = () => {
-  return (
-    <>
-      <SafeArea
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      >
-        <Text>Setting</Text>
-      </SafeArea>
-    </>
-  );
-};
-
-const customScreenOption=({ route }) =>{
-  return({
-    tabBarIcon: ({ focused, color, size }) => {
-      let iconName;
-
-      if (route.name === "Restaurants") {
-        iconName = focused
-          ? "restaurant"
-          : "restaurant-outline";
-      } else if (route.name === "Settings") {
-        iconName = focused ? "settings" : "settings-outline";
-      }else if(route.name==="Map"){
-        iconName=focused?"map":"map-outline";
-      }
-      // You can return any component that you like here!
-      return <Ionicons name={iconName} size={size} color={color} />;
-    },
-    headerShown:false,
-    tabBarActiveTintColor:"tomato",
-    tabBarInactiveTintColor:"grey"
-  })
-}
 
 export default function App() {
   // const [obj,setObj]=useState(false);
@@ -82,15 +29,11 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={customScreenOption}
-          >
-            <Tab.Screen name="Restaurants" component={Restaurant}/>
-            <Tab.Screen name="Map" component={Map}/>
-            <Tab.Screen name="Settings" component={Settings}/>
-          </Tab.Navigator>
-        </NavigationContainer>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <Navigation/>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
