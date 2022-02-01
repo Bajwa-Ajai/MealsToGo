@@ -5,20 +5,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { SafeArea } from "../../components/utility/SafeArea";
 import { Text } from "react-native";
 import { RestaurantsNavigator } from "./restaurants.navigator";
-
+import { MapScreen } from "../../features/maps/screens/map.screen";
 const Tab = createBottomTabNavigator();
 
-const Map = () => {
-  return (
-    <>
-      <SafeArea
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      >
-        <Text>Map</Text>
-      </SafeArea>
-    </>
-  );
-};
 
 const Settings = () => {
   return (
@@ -59,7 +48,7 @@ export const AppNavigation = () => {
       <NavigationContainer>
         <Tab.Navigator screenOptions={customScreenOption}>
           <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-          <Tab.Screen name="Map" component={Map} />
+          <Tab.Screen name="Map" component={MapScreen} />
           <Tab.Screen name="Settings" component={Settings} />
         </Tab.Navigator>
       </NavigationContainer>

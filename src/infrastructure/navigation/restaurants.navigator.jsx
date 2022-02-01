@@ -1,8 +1,7 @@
 import React from "react";
-import {Text} from "react-native"; 
 import {createStackNavigator,TransitionPresets} from "@react-navigation/stack";
 import { Restaurant as RestaurantScreen } from "../../features/restaurants/screens/Restaurant.screen";
-
+import { RestaurantDetailScreen } from "../../features/restaurants/screens/restaurants-detail.screen";
 const RestaurantStack=createStackNavigator();
 
 export const RestaurantsNavigator=()=>{
@@ -10,14 +9,14 @@ export const RestaurantsNavigator=()=>{
         <RestaurantStack.Navigator 
         screenOptions={{
             ...TransitionPresets.RevealFromBottomAndroid,
-            headerShown:false}}>
+            headerShown:false }}>
             <RestaurantStack.Screen
                 name="RestaurantScreen"
                 component={RestaurantScreen}
             />
-            <RestaurantStack.Screen
+            <RestaurantStack.Screen 
             name="RestaurantDetails"
-            component={()=><Text>Restaurant Detail</Text>}
+            component={RestaurantDetailScreen}
             />
         </RestaurantStack.Navigator>
     );

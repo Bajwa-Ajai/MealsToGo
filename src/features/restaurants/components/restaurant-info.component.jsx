@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {View, StyleSheet,Image} from "react-native";
+import { Favourite } from "../../../components/favourites/favourite.component";
 import {Spacer} from '../../../components/spacer/spaces.component'
 import styled from "styled-components/native";
 import {Card} from "react-native-paper";
@@ -39,6 +40,7 @@ export const RestaurantInfoCard = ({
     return (
         <View>
             <RestaurantCard elevation={5}>
+                <Favourite restaurant={restaurant}/>
                 <RestaurantCardCover
                     source={{
                     uri: photos[0]

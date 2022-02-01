@@ -12,7 +12,7 @@ import { Navigation } from "./src/infrastructure/navigation/index";
 // console.log(StatusBar.currentHeight)
 import { RestaurantsContextProvider } from "./src/services/restaurant/restaurant.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
-
+import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 
 export default function App() {
   // const [obj,setObj]=useState(false);
@@ -29,11 +29,13 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <LocationContextProvider>
-          <RestaurantsContextProvider>
-            <Navigation/>
-          </RestaurantsContextProvider>
-        </LocationContextProvider>
+        <FavouritesContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <Navigation />
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
+        </FavouritesContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

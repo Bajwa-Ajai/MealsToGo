@@ -7,21 +7,23 @@ import { LocationContext } from "../../../services/location/location.context";
 
 const SearchBarContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
+  position:absolute;
+  z-index:999;
+  top:30px;
+  width:100%;
 `;
 
 
-export const Search=({isFavouritesToggled,onFavouritesToggle})=>{
+export const Search=()=>{
     const {keyword,search}=useContext(LocationContext);
     const [searchKeyword,setSearchKeyword]=useState(keyword);
     // console.log(locationContext);
     useEffect(()=>{
-      setSearchKeyword(keyword);
+        setSearchKeyword(keyword);
     },[keyword]);
     return (
         <SearchBarContainer>
           <Searchbar 
-          icon={isFavouritesToggled?"heart":"heart-outline"}
-          onIconPress={onFavouritesToggle}
           placeholder="Search for locations"
           value={searchKeyword}
           onSubmitEditing={()=>{
