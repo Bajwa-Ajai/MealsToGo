@@ -1,25 +1,14 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { SafeArea } from "../../components/utility/SafeArea";
-import { Text } from "react-native";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/maps/screens/map.screen";
+import { RestaurantsContextProvider } from "../../services/restaurant/restaurant.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
+import { SettingNavigator } from "./settings.navigation";
+
 const Tab = createBottomTabNavigator();
-
-
-const Settings = () => {
-  return (
-    <>
-      <SafeArea
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      >
-        <Text>Setting</Text>
-      </SafeArea>
-    </>
-  );
-};
 
 const customScreenOption = ({ route }) => {
   return {
@@ -45,13 +34,17 @@ const customScreenOption = ({ route }) => {
 export const AppNavigation = () => {
   return (
     <>
-      <NavigationContainer>
-        <Tab.Navigator screenOptions={customScreenOption}>
-          <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-          <Tab.Screen name="Map" component={MapScreen} />
-          <Tab.Screen name="Settings" component={Settings} />
-        </Tab.Navigator>
-      </NavigationContainer>
+      <FavouritesContextProvider>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <Tab.Navigator screenOptions={customScreenOption}>
+              <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+              <Tab.Screen name="Map" component={MapScreen} />
+              <Tab.Screen name="Settings" component={SettingNavigator} />
+            </Tab.Navigator>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
+      </FavouritesContextProvider>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { FlatList, View, TouchableOpacity } from "react-native";
 import { ActivityIndicator, Colors } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info.component";
@@ -9,6 +9,7 @@ import { RestaurantsContext } from "../../../services/restaurant/restaurant.cont
 import { Search } from "../components/search.component";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import { FadeInView } from "../../../components/animations/fade.animation";
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -27,9 +28,9 @@ const LoadingContainer = styled(View)`
 
 export const Restaurant = ({ navigation }) => {
   const restaurantContext = useContext(RestaurantsContext);
-  const {favourites}=useContext(FavouritesContext);
+  const { favourites } = useContext(FavouritesContext);
   const { restaurants, error, loading } = restaurantContext;
-  const [isToggled,setIsToggled]=useState(false);
+  const [isToggled, setIsToggled] = useState(false);
   // console.log(error);
   return (
     <SafeArea>
@@ -39,22 +40,31 @@ export const Restaurant = ({ navigation }) => {
         </LoadingContainer>
       )}
       <>
-        <Search isFavouritesToggled={isToggled} onFavouritesToggle={()=>setIsToggled(!isToggled)} />
-        {
-        isToggled &&
-        <FavouritesBar favourites={favourites} onNavigate={navigation.navigate}/>
-        }
+        <Search
+          isFavouritesToggled={isToggled}
+          onFavouritesToggle={() => setIsToggled(!isToggled)}
+        />
+        {isToggled && (
+          <FavouritesBar
+            favourites={favourites}
+            onNavigate={navigation.navigate}
+          />
+        )}
         <RestaurantList
           data={restaurants}
           renderItem={({ item }) => {
             return (
               <Spacer position="bottom" size="large">
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("RestaurantDetails",{
-                    restaurant:item
-                  })}
+                  onPress={() =>
+                    navigation.navigate("RestaurantDetails", {
+                      restaurant: item,
+                    })
+                  }
                 >
-                  <RestaurantInfoCard restaurant={item} />
+                  <FadeInView>
+                    <RestaurantInfoCard restaurant={item} />
+                  </FadeInView>
                 </TouchableOpacity>
               </Spacer>
             );
