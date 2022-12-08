@@ -1,5 +1,5 @@
 Arguments: 
-  D:\program files\nodejs\node.exe C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @react-native-firebase
+  D:\program files\nodejs\node.exe C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add expo@^47.0.0
 
 PATH: 
   C:\Users\ajai2\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\ajai2\bin;D:\program files\NVIDIA\CUDA Development\bin;D:\program files\NVIDIA\CUDA Development\libnvvp;C:\Python39\Scripts;C:\Python39;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;D:\Java\jdk-11.0.4_windows-x64_bin\jdk-11.0.4\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\OpenJDK\openjdk-8u282-b08\bin;C:\MinGW\bin;D:\program files\PostGreSQL\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.1.0;C:\Users\ajai2\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\MATLAB\R2020a\bin;D:\Java\jdk-11.0.4_windows-x64_bin\jdk-11.0.4\bin;D:\program files\Git\cmd;C:\Users\ajai2\AppData\Local\Microsoft\WindowsApps;D:\program files\flutter\bin;D:\Microsoft VS Code\bin;C:\Users\ajai2\AppData\Roaming\npm;D:\program files\nodejs;C:\Users\ajai2\AppData\Local\Android\Sdk\platform-tools;C:\Users\ajai2\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\hadoop\bin;C:\Spark\spark-3.1.2-bin-hadoop3.2\bin;C:\Users\ajai2\AppData\Local\Programs\Hyper\resources\bin;C:\Python39;C:\Users\ajai2\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -14,17 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@react-native-firebase: Request "https://registry.yarnpkg.com/@react-native-firebase" returned a 405
-      at Request.params.callback [as _callback] (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66997:18)
-      at Request.self.callback (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
-      at Request.emit (node:events:378:20)
-      at Request.<anonymous> (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141634:10)
-      at Request.emit (node:events:378:20)
-      at IncomingMessage.<anonymous> (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141556:12)
-      at Object.onceWrapper (node:events:484:28)
-      at IncomingMessage.emit (node:events:390:22)
-      at endReadableNT (node:internal/streams/readable:1307:12)
-      at processTicksAndRejections (node:internal/process/task_queues:81:21)
+  Invariant Violation: expected hoisted manifest for "babel-preset-expo#metro-react-native-babel-preset#@babel/core#@babel/helper-compilation-targets#browserslist"
+      at invariant (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:2314:15)
+      at _loop2 (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:94526:9)
+      at PackageHoister.init (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:94596:19)
+      at PackageLinker.getFlatHoistedTree (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:48744:20)
+      at PackageLinker.<anonymous> (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:48755:27)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (C:\Users\ajai2\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:5301:28)
 
 npm manifest: 
   {
@@ -53,6 +53,7 @@ npm manifest:
       "expo-font": "~10.0.3",
       "expo-status-bar": "~1.1.0",
       "firebase": "^9.6.5",
+      "lottie-react-native": "4.0.3",
       "react": "17.0.1",
       "react-dom": "17.0.1",
       "react-native": "0.64.3",
@@ -3012,6 +3013,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/decode-uri-component/-/decode-uri-component-0.2.0.tgz"
     integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
   
+  dedent@^0.6.0:
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.6.0.tgz#0e6da8f0ce52838ef5cec5c8f9396b0c1b64a3cb"
+    integrity sha1-Dm2o8M5Sg471zsXI+TlrDBtko8s=
+  
   deepmerge@^3.2.0:
     version "3.3.0"
     resolved "https://registry.npmjs.org/deepmerge/-/deepmerge-3.3.0.tgz"
@@ -4439,6 +4445,15 @@ Lockfile:
     dependencies:
       js-tokens "^3.0.0 || ^4.0.0"
   
+  lottie-react-native@4.0.3:
+    version "4.0.3"
+    resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-4.0.3.tgz#2a2548b8fb6d30e45b55714ec57e986e4af6fcb0"
+    integrity sha512-cmMt/HEwTTzF3PQcE4VVl7jpBYC9cZD9pGz7ZLxYV13e5jWBvMCFKsQYHlYAo69fjXZ2YCum1AqEuez6kSbmCA==
+    dependencies:
+      invariant "^2.2.2"
+      prop-types "^15.5.10"
+      react-native-safe-modules "^1.0.3"
+  
   lru-cache@^6.0.0:
     version "6.0.0"
     resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz"
@@ -5403,6 +5418,15 @@ Lockfile:
       kleur "^3.0.3"
       sisteransi "^1.0.5"
   
+  prop-types@^15.5.10:
+    version "15.8.1"
+    resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+    integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+    dependencies:
+      loose-envify "^1.4.0"
+      object-assign "^4.1.1"
+      react-is "^16.13.1"
+  
   prop-types@^15.6.0, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
@@ -5481,7 +5505,7 @@ Lockfile:
       object-assign "^4.1.1"
       scheduler "^0.20.1"
   
-  react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1:
+  react-is@^16.13.0, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
     version "16.13.1"
     resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -5536,6 +5560,13 @@ Lockfile:
     version "3.3.2"
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.3.2.tgz#9549a2ce580f2374edb05e49d661258d1b8bcaed"
     integrity sha512-yOwiiPJ1rk+/nfK13eafbpW6sKW0jOnsRem2C1LPJjM3tfTof6hlvV5eWHATye3XOpu2cJ7N+HdkUvUDGwFD2Q==
+  
+  react-native-safe-modules@^1.0.3:
+    version "1.0.3"
+    resolved "https://registry.yarnpkg.com/react-native-safe-modules/-/react-native-safe-modules-1.0.3.tgz#f5f29bb9d09d17581193843d4173ad3054f74890"
+    integrity sha512-DUxti4Z+AgJ/ZsO5U7p3uSCUBko8JT8GvFlCeOXk9bMd+4qjpoDvMYpfbixXKgL88M+HwmU/KI1YFN6gsQZyBA==
+    dependencies:
+      dedent "^0.6.0"
   
   react-native-screens@~3.8.0:
     version "3.8.0"
